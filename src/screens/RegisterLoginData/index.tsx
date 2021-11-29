@@ -50,6 +50,25 @@ export function RegisterLoginData() {
     const dataKey = '@savepass:logins';
 
     // Save data on AsyncStorage and navigate to 'Home' screen
+
+    try {
+
+      const data = await AsyncStorage.getItem(dataKey);
+
+      const currentData = data ? JSON.parse(data) : [];
+
+      const newData = [...currentData, newLoginData]
+
+      const formDataFormatted = JSON.stringify(newData);
+
+      await AsyncStorage.setItem(dataKey, formDataFormatted);
+  
+    } catch(error) {
+      console.log(error)
+      Alert.alert('não foi possivel cadastrar')
+    }
+
+
   }
 
   return (
