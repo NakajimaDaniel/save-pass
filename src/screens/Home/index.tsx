@@ -46,10 +46,21 @@ export function Home() {
 
   function handleFilterLoginData() {
     // Filter results inside data, save with setSearchListData
+
+    const searchList = data.filter((data) => {
+      if (searchText) {
+        return data.service_name === searchText;
+      } return data
+
+    })
+
+    setSearchListData(searchList);
+
   }
 
   function handleChangeInputText(text: string) {
     // Update searchText value
+    setSearchText(text);
   }
 
   useFocusEffect(useCallback(() => {
