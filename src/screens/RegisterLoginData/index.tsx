@@ -62,7 +62,10 @@ export function RegisterLoginData() {
       const formDataFormatted = JSON.stringify(newData);
 
       await AsyncStorage.setItem(dataKey, formDataFormatted);
-  
+      
+      navigate("Home")
+      
+
     } catch(error) {
       console.log(error)
       Alert.alert('não foi possivel cadastrar')
